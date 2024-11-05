@@ -1,0 +1,65 @@
+country,incidence,vaccine_rate,disease
+Andorra,0,0.97,Tetanus
+Belarus,0,0.99,Tetanus
+Bosnia and Herzegovina,0,0.82,Tetanus
+Bulgaria,0,0.91,Tetanus
+Croatia,3,0.94,Tetanus
+Czechia,1,0.97,Tetanus
+Estonia,0,0.93,Tetanus
+Finland,0,0.97,Tetanus
+Greece,6,0.99,Tetanus
+Hungary,3,0.99,Tetanus
+Iceland,0,0.92,Tetanus
+Ireland,1,0.95,Tetanus
+Italy,47,0.93,Tetanus
+Latvia,0,0.94,Tetanus
+Lithuania,2,0.93,Tetanus
+Luxembourg,0,0.99,Tetanus
+Malta,0,0.97,Tetanus
+Netherlands ,0,0.95,Tetanus
+North Macedonia,0,0.91,Tetanus
+Norway,2,0.95,Tetanus
+Portugal,0,0.98,Tetanus
+Romania,7,0.89,Tetanus
+Russian Federation,13,0.97,Tetanus
+Serbia,4,0.95,Tetanus
+Slovakia,0,0.96,Tetanus
+Slovenia,3,0.95,Tetanus
+Spain,3,0.97,Tetanus
+Sweden,0,0.98,Tetanus
+United Kingdom of Great Britain and Northern Ireland,6,0.95,Tetanus
+Andorra,0,0.96,Measles
+Austria,309,0.96,Measles
+Belarus,2,0.99,Measles
+Belgium,47,0.96,Measles
+Bosnia and Herzegovina,1677,0.83,Measles
+Bulgaria,0,0.92,Measles
+Croatia,206,0.93,Measles
+Czechia,9,0.99,Measles
+Denmark,9,0.91,Measles
+Estonia,4,0.93,Measles
+Finland,2,0.95,Measles
+France,157,0.91,Measles
+Germany,2464,0.97,Measles
+Greece,1,0.97,Measles
+Hungary,0,0.99,Measles
+Iceland,0,0.93,Measles
+Ireland,4,0.93,Measles
+Italy,159,0.85,Measles
+Latvia,0,0.96,Measles
+Luxembourg,0,0.99,Measles
+Malta,2,0.89,Measles
+Netherlands,7,0.95,Measles
+North Macedonia,1,0.89,Measles
+Norway,14,0.95,Measles
+Portugal,0,0.98,Measles
+Romania,4,0.86,Measles
+Russian Federation,843,0.98,Measles
+Serbia,383,0.86,Measles
+Slovakia,1,0.95,Measles
+Slovenia,18,0.94,Measles
+Spain,115,0.96,Measles
+Sweden,22,0.98,Measles
+Switzerland,35,0.94,Measles
+Ukraine,105,0.56,Measles
+United Kingdom of Great Britain and Northern Ireland,91,0.93,Measles

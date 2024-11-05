@@ -1,4 +1,4 @@
-country,incidence ,vaccine_rate,disease
+country,incidence,vaccine_rate,disease
 Albania,0,0.99,Tetanus
 Andorra,0,0.96,Tetanus
 Belarus,0,0.98,Tetanus
@@ -40,7 +40,7 @@ Denmark,17,0.89,Measles
 Estonia,2,0.94,Measles
 Finland,2,0.97,Measles
 France,272,0.90,Measles
-Germany,"1,771",0.97,Measles
+Germany,1771,0.97,Measles
 Greece,3,0.99,Measles
 Hungary,1,0.99,Measles
 Iceland,0,0.91,Measles
@@ -48,17 +48,17 @@ Ireland,51,0.93,Measles
 Latvia,0,0.96,Measles
 Luxembourg,0,0.99,Measles
 Montenegro,0,0.88,Measles
-Netherlands,"2,632",0.96,Measles
+Netherlands,2632,0.96,Measles
 North Macedonia,4,0.96,Measles
 Norway,8,0.93,Measles
 Poland,84,0.98,Measles
 Portugal,1,0.98,Measles
-Romania,"1,159",0.92,Measles
-Russian Federation,"2,339",0.98,Measles
+Romania,1159,0.92,Measles
+Russian Federation,2339,0.98,Measles
 Serbia,1,0.92,Measles
 Slovakia,0,0.98,Measles
 Slovenia,1,0.94,Measles
 Spain,131,0.95,Measles
 Sweden,51,0.97,Measles
 Switzerland,175,0.93,Measles
-United Kingdom of Great Britain and Northern Ireland,"1,919",0.93,Measles
+United Kingdom of Great Britain and Northern Ireland,1919,0.93,Measles
