@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="description" content="Data Visualisation Exercise 1"/>
+    <meta name="keywords" content="HTML, CSS"/>
+    <meta name="author" content="Lim Chi Yuen"/>
+
+    <link rel="stylesheet" href="stylesheet.css"> 
+    <title>Test GDP</title>
+
+    <!-- Include D3.js -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <style>
+        .button-container {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        button {
+            margin-right: 10px;
+            padding: 5px 10px;
+            font-size: 14px;
+        }
+        .active {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+
+    <!-- Button container for datasets -->
+    <div class="button-container dataset-buttons"></div>
+
+    <!-- Button container for years -->
+    <div class="button-container year-buttons"></div>
+
+    <!-- Load the JavaScript file -->
+    <script src="testGeo.js"></script>
+</body>
+</html>
