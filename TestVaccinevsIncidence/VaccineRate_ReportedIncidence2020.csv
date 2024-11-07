@@ -1,0 +1,94 @@
+country,incidence,vaccine_rate,disease
+Albania,0,0.98,Tetanus
+Andorra,0,0.99,Tetanus
+Belarus,1,0.97,Tetanus
+Bulgaria,1,0.91,Tetanus
+Croatia,0,0.94,Tetanus
+Czechia,0,0.97,Tetanus
+Denmark,1,0.97,Tetanus
+Estonia,0,0.91,Tetanus
+Finland,0,0.90,Tetanus
+France,3,0.96,Tetanus
+Greece,2,0.99,Tetanus
+Hungary,3,0.99,Tetanus
+Iceland,0,0.93,Tetanus
+Ireland,0,0.94,Tetanus
+Italy,12,0.94,Tetanus
+Latvia,0,0.99,Tetanus
+Lithuania,0,0.91,Tetanus
+Luxembourg,0,0.99,Tetanus
+Malta,0,0.98,Tetanus
+Montenegro,0,0.84,Tetanus
+Netherlands,2,0.94,Tetanus
+North Macedonia,0,0.84,Tetanus
+Norway,0,0.97,Tetanus
+Poland,2,0.90,Tetanus
+Portugal,0,0.99,Tetanus
+Romania,3,0.87,Tetanus
+Russian Federation,8,0.97,Tetanus
+San Marino,0,0.89,Tetanus
+Serbia,0,0.92,Tetanus
+Slovakia,0,0.97,Tetanus
+Slovenia,2,0.95,Tetanus
+Spain,0,0.94,Tetanus
+Sweden,0,0.97,Tetanus
+Ukraine,0,0.81,Tetanus
+United Kingdom of Great Britain and Northern Ireland,8,0.93,Tetanus
+Albania,4,0.91,Measles
+Andorra,0,0.98,Measles
+Austria,25,0.95,Measles
+Belarus,0,0.97,Measles
+Belgium,47,0.96,Measles
+Bulgaria,257,0.88,Measles
+Croatia,0,0.91,Measles
+Czechia,4,0.94,Measles
+Denmark,4,0.94,Measles
+Estonia,0,0.91,Measles
+Finland,4,0.95,Measles
+France,240,0.92,Measles
+Germany,76,0.97,Measles
+Greece,3,0.97,Measles
+Hungary,0,0.99,Measles
+Iceland,0,0.93,Measles
+Ireland,15,0.92,Measles
+Italy,103,0.92,Measles
+Latvia,0,0.99,Measles
+Luxembourg,0,0.99,Measles
+Malta,2,0.95,Measles
+Montenegro,0,0.24,Measles
+Netherlands,2,0.94,Measles
+North Macedonia,0,0.63,Measles
+Norway,4,0.97,Measles
+Poland,29,0.80,Measles
+Portugal,10,0.99,Measles
+Romania,1004,0.87,Measles
+Russian Federation,1212,0.97,Measles
+San Marino,0,0.90,Measles
+Serbia,0,0.78,Measles
+Slovakia,0,0.96,Measles
+Slovenia,6,0.94,Measles
+Spain,89,0.96,Measles
+Sweden,5,0.97,Measles
+Switzerland,37,0.97,Measles
+Ukraine,264,0.85,Measles
+United Kingdom of Great Britain and Northern Ireland,95,0.91,Measles
+Austria,83109,0.85,Hepatitis B
+Belgium,164523,0.97,Hepatitis B
+Croatia,908,0.91,Hepatitis B
+Denmark,8854,0.97,Hepatitis B
+Estonia,305,0.90,Hepatitis B
+Finland,9205,0.96,Hepatitis B
+Germany,5659893,0.88,Hepatitis B
+Iceland,122,0.98,Hepatitis B
+Ireland,16605,0.94,Hepatitis B
+Italy,102340,0.94,Hepatitis B
+Latvia,4254,0.99,Hepatitis B
+Luxembourg,3211,0.96,Hepatitis B
+Malta,200,0.98,Hepatitis B
+Netherlands,139650,0.93,Hepatitis B
+Norway,12104,0.97,Hepatitis B
+Poland,381209,0.90,Hepatitis B
+Portugal,13181,0.99,Hepatitis B
+Romania,4082,0.87,Hepatitis B
+Slovenia,1990,0.95,Hepatitis B
+Sweden,83366,0.97,Hepatitis B

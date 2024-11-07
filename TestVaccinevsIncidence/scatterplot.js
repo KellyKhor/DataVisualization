@@ -4,7 +4,7 @@ function init() {
     const margin = { top: 25, right: 20, bottom: 45, left: 40 };
 
 
-    d3.csv('VaccineRate_ReportedIncidence2017.csv', function(d) {
+    d3.csv('VaccineRate_ReportedIncidence2018.csv', function(d) {
         return {
             country: d.country,
             incidence: +d.incidence,
@@ -27,9 +27,10 @@ function init() {
                     .range([h - margin.bottom, margin.top]);
 
         // define color scale
-        const color = d3.scaleOrdinal()
-                        .domain(["Measles", "Tetanus", "Hepatitis B"])
-                        .range(d3.schemeCategory10);
+        const color = d3.scaleOrdinal(data.map(d => d.disease), d3.schemeCategory10);
+        // const color = d3.scaleOrdinal()
+        //                 .domain(["Measles", "Tetanus", "Hepatitis B"])
+        //                 .range(d3.schemeCategory10);
 
         // create SVG 
         const svg = d3.select("#scatterplot")

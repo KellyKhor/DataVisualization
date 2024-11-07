@@ -1,0 +1,77 @@
+country,incidence,vaccine_rate,disease
+Albania,1,0.84,Tetanus
+Andorra,0,0.96,Tetanus
+Belarus,0,0.93,Tetanus
+Bosnia and Herzegovina,1,0.74,Tetanus
+Bulgaria,0,0.97,Tetanus
+Croatia,0,0.84,Tetanus
+Czechia,0,0.94,Tetanus
+Denmark,1,0.97,Tetanus
+Estonia,1,0.91,Tetanus
+Finland,0,0.90,Tetanus
+France,2,0.95,Tetanus
+Greece,2,0.95,Tetanus
+Hungary,1,0.98,Tetanus
+Iceland,0,0.99,Tetanus
+Ireland,0,0.95,Tetanus
+Italy,0,0.95,Tetanus
+Latvia,0,0.94,Tetanus
+Lithuania,3,0.90,Tetanus
+Luxembourg,0,0.99,Tetanus
+Malta,0,0.99,Tetanus
+Monaco,0,0.98,Tetanus
+Montenegro,0,0.82,Tetanus
+Netherlands,5,0.95,Tetanus
+North Macedonia,0,0.84,Tetanus
+Norway,0,0.95,Tetanus
+Poland,13,0.91,Tetanus
+Portugal,1,0.96,Tetanus
+Romania,5,0.89,Tetanus
+Russian Federation,8,0.97,Tetanus
+San Marino,0,0.91,Tetanus
+Serbia,1,0.92,Tetanus
+Slovakia,0,0.94,Tetanus
+Slovenia,0,0.95,Tetanus
+Spain,0,0.93,Tetanus
+Sweden,4,0.94,Tetanus
+Switzerland,1,0.93,Tetanus
+United Kingdom of Great Britain and Northern Ireland,0,0.95,Tetanus
+Albania,13,0.91,Measles
+Andorra,0,0.99,Measles
+Austria,186,0.94,Measles
+Belarus,193,0.95,Measles
+Belgium,67,0.96,Measles
+Bosnia and Herzegovina,13,0.66,Measles
+Bulgaria,0,0.91,Measles
+Croatia,3,0.84,Measles
+Czechia,1,0.92,Measles
+Denmark,9,0.86,Measles
+Estonia,4,0.71,Measles
+Finland,1,0.92,Measles
+France,117,0.91,Measles
+Germany,79,0.82,Measles
+Greece,0,0.96,Measles
+Hungary,1,0.90,Measles
+Iceland,0,0.91,Measles
+Ireland,4,0.86,Measles
+Latvia,1,0.86,Measles
+Luxembourg,0,0.95,Measles
+Malta,0,0.99,Measles
+Monaco,0,0.90,Measles
+Montenegro,0,0.56,Measles
+Netherlands,7,0.93,Measles
+North Macedonia,1,0.72,Measles
+Norway,2,0.96,Measles
+Poland,35,0.90,Measles
+Portugal,0,0.88,Measles
+Romania,3677,0.90,Measles
+Russian Federation,13083,0.88,Measles
+San Marino,0,0.91,Measles
+Serbia,50,0.85,Measles
+Slovakia,6,0.95,Measles
+Slovenia,1,0.93,Measles
+Spain,15,0.94,Measles
+Sweden,11,0.89,Measles
+Switzerland,52,0.94,Measles
+Ukraine,66,0.55,Measles
+United Kingdom of Great Britain and Northern Ireland,493,0.91,Measles
