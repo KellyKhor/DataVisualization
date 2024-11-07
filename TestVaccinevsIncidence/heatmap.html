@@ -10,23 +10,34 @@
             font-size: 12px;
             font-weight: bold;
         }
+
+        #year {
+            background-color: rgb(231, 244, 205);           
+            padding: 5px;
+            font-size: 15px;
+            font-family: 'Times New Roman', Times, serif;
+            font-style: italic;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
     </style>
 </head>
 <body>
-    <h2>Vaccination Rate by Country and Disease - Heat Map Testing</h2>
-    <label>Vaccination Rate in Year:</label>
+    <h2>Vaccination Rates for Tetanus, Measles, and Hepatitis B in European Countries</h2>
+    <label style="font-size: 18px;"><i>Vaccination Rate in Year: </i></label>
     <select id="year" >
-        <option value="2013">2013</option>
-        <option value="2014">2014</option>
-        <option value="2015">2015</option>
-        <option value="2016">2016</option>
-        <option value="2017">2017</option>
-        <option value="2018">2018</option>
-        <option value="2019">2019</option>
-        <option value="2020">2020</option>
-        <option value="2021">2021</option>
-        <option value="2022">2022</option>
-        <option value="2023">2023</option>
+        <option class = "pointer" value="2013">2013</option>
+        <option class = "pointer" value="2014">2014</option>
+        <option class = "pointer" value="2015">2015</option>
+        <option class = "pointer" value="2016">2016</option>
+        <option class = "pointer" value="2017">2017</option>
+        <option class = "pointer" value="2018">2018</option>
+        <option class = "pointer" value="2019">2019</option>
+        <option class = "pointer" value="2020">2020</option>
+        <option class = "pointer" value="2021">2021</option>
+        <option class = "pointer" value="2022">2022</option>
+        <option class = "pointer" value="2023">2023</option>
     </select>
 
     <svg width="900" height="600"></svg>

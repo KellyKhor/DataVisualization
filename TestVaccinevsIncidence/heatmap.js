@@ -6,8 +6,8 @@ document.getElementById('year').addEventListener('click', () => {
 
     // Set dimensions and margins
     const margin = { top: 50, right: 20, bottom: 70, left: 100 },
-        width = 800 - margin.left - margin.right,
-        height = 500 - margin.top - margin.bottom;
+    width = 800 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
 
     const svg = d3.select('svg');
     svg.selectAll('*').remove();
@@ -44,90 +44,90 @@ document.getElementById('year').addEventListener('click', () => {
 
         // Create scales
         const xScale = d3.scaleBand()
-                        .domain(diseases)
-                        .range([0, width])
-                        .padding(0.05);
+                         .domain(diseases)
+                         .range([0, width])
+                         .padding(0.05);
 
         const yScale = d3.scaleBand()
-                        .domain(countries)
-                        .range([0, height])
-                        .padding(0.05);
+                         .domain(countries)
+                         .range([0, height])
+                         .padding(0.05);
 
         const colorScale = d3.scaleSequential(d3.interpolateInferno)
-                            .domain([0, 100]);  // 0-100% vaccine rate
+                             .domain([0, 100]);  // 0-100% vaccine rate
 
         // Add x-axis
         chartGroup.append("g")
-        .attr("transform", `translate(0, ${height})`)
-        .call(d3.axisBottom(xScale))
-        .selectAll("text")
-        .attr("class", "axis-label")
-        .attr("transform", "rotate(-45)")
-        .style("text-anchor", "end");
+                  .attr("transform", `translate(0, ${height})`)
+                  .call(d3.axisBottom(xScale))
+                  .selectAll("text")
+                  .attr("class", "axis-label")
+                  .attr("transform", "rotate(-45)")
+                  .style("text-anchor", "end");
 
         // Add y-axis
         chartGroup.append("g")
-        .call(d3.axisLeft(yScale))
-        .selectAll("text")
-        .attr("class", "axis-label");
+                  .call(d3.axisLeft(yScale))
+                  .selectAll("text")
+                  .attr("class", "axis-label");
 
         // Draw cells
         chartGroup.selectAll()
-        .data(data, d => d.country + ':' + d.disease)
-        .enter()
-        .append("rect")
-        .attr("x", d => xScale(d.disease))
-        .attr("y", d => yScale(d.country))
-        .attr("width", xScale.bandwidth())
-        .attr("height", yScale.bandwidth())
-        .style("fill", d => colorScale(d.vaccine_rate))
-        .style("stroke", "grey")
-        // Mouse interaction for tooltip
-        .on("mouseover", (event, d) => {
-            tooltip.style("opacity", 1)
-                    .html(`Country: ${d.country}<br>Disease: ${d.disease}<br>Vaccination Rate: ${d.vaccine_rate}%<br>Reported Cases: ${d.incidence}`)
-                    .style("left", (event.pageX + 10) + "px")
-                    .style("top", (event.pageY - 28) + "px");
-        })
-        .on("mousemove", (event) => {
-            tooltip.style("left", (event.pageX + 10) + "px")
-                    .style("top", (event.pageY - 28) + "px");
-        })
-        .on("mouseout", () => {
-            tooltip.style("opacity", 0);
-        });
+                  .data(data, d => d.country + ':' + d.disease)
+                  .enter()
+                  .append("rect")
+                  .attr("x", d => xScale(d.disease))
+                  .attr("y", d => yScale(d.country))
+                  .attr("width", xScale.bandwidth())
+                  .attr("height", yScale.bandwidth())
+                  .style("fill", d => colorScale(d.vaccine_rate))
+                  .style("stroke", "grey")
+                  // Mouse interaction for tooltip
+                  .on("mouseover", (event, d) => {
+                      tooltip.style("opacity", 1)
+                             .html(`Country: ${d.country}<br>Disease: ${d.disease}<br>Vaccination Rate: ${d.vaccine_rate}%<br>Reported Cases: ${d.incidence}`)
+                             .style("left", (event.pageX + 10) + "px")
+                             .style("top", (event.pageY - 28) + "px");
+                  })
+                  .on("mousemove", (event) => {
+                      tooltip.style("left", (event.pageX + 10) + "px")
+                             .style("top", (event.pageY - 28) + "px");
+                  })
+                  .on("mouseout", () => {
+                      tooltip.style("opacity", 0);
+                  });
 
         // Add color legend
         const legendWidth = 200, legendHeight = 20;
 
         const legend = chartGroup.append("g")
-                        .attr("transform", `translate(${width - legendWidth - 20}, -30)`);
+                                 .attr("transform", `translate(${width - legendWidth - 20}, -30)`);
 
         const legendScale = d3.scaleLinear()
-                            .domain([0, 100])
-                            .range([0, legendWidth]);
+                              .domain([0, 100])
+                              .range([0, legendWidth]);
 
         const legendAxis = d3.axisBottom(legendScale).ticks(5).tickFormat(d => d + "%");
 
         legend.selectAll("rect")
-            .data(d3.range(0, 100))
-            .enter()
-            .append("rect")
-            .attr("x", d => legendScale(d))
-            .attr("width", legendWidth / 100)
-            .attr("height", legendHeight)
-            .attr("fill", d => colorScale(d));
+              .data(d3.range(0, 100))
+              .enter()
+              .append("rect")
+              .attr("x", d => legendScale(d))
+              .attr("width", legendWidth / 100)
+              .attr("height", legendHeight)
+              .attr("fill", d => colorScale(d));
 
         legend.append("g")
-            .attr("transform", `translate(0, ${legendHeight})`)
-            .call(legendAxis);
+              .attr("transform", `translate(0, ${legendHeight})`)
+              .call(legendAxis);
 
         legend.append("text")
-            .attr("class", "axis-label")
-            .attr("x", legendWidth / 2)
-            .attr("y", -10)
-            .style("text-anchor", "middle")
-            .text("Vaccination Rate (%)");
+              .attr("class", "axis-label")
+              .attr("x", legendWidth / 2)
+              .attr("y", -10)
+              .style("text-anchor", "middle")
+              .text("Vaccination Rate (%)");
     });
 });
 
@@ -140,8 +140,7 @@ function selectYear(){
 
 function getFile(year){
     var file;
-    // var year = +year //convert to numeric
-    
+    // convert year to numeric
     switch(+year) {
         case 2013:
             file = 'VaccineRate_ReportedIncidence2013.csv';
