@@ -5,42 +5,115 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vaccination Rate Heatmap with Tooltip</title>
     <script src="https://d3js.org/d3.v7.min.js"></script>
+    
+    <!--CSS Styling-->
     <style>
+        header {
+            background-color: rgb(41, 67, 76);
+            padding: 30px;
+            text-align: center;
+            font-size: 25px;
+            color: lightblue;
+            /* margin-right: 100px; */
+        }
+        h2 {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+        section {
+            background-color: lightcyan;
+            padding: 0%;
+            margin-top: 0px;
+            padding-top: 1rem;
+            padding-bottom: 50px;
+            /* float: right; */
+        }
+        svg {
+            margin-left: 50px;
+        }
+        article {
+            background-color: navy;
+            float: right;
+            color: white;
+            text-align: left;
+            padding-left: 70px;
+            padding-right: 70px;
+            padding-top: 100px;
+            padding-bottom: 100px;
+            margin-right: 120px;
+            margin-top: 135px;
+        }
         .axis-label {
             font-size: 12px;
             font-weight: bold;
         }
-
+        .yearLabel {
+            margin-left: 50px;
+            float: left;
+        }
         #year {
             background-color: rgb(231, 244, 205);           
-            padding: 5px;
+            padding: 3px;
             font-size: 15px;
             font-family: 'Times New Roman', Times, serif;
             font-style: italic;
             border-radius: 10px;
             cursor: pointer;
+            margin-left: 3px;
+        }
+        footer {
+            background-color: rgb(124, 124, 153);
+            color: aliceblue;
+            padding: 20px;
+            font-size: 20px;
+            text-align: center;
+            
         }
 
     </style>
 </head>
-<body>
-    <h2>Vaccination Rates for Tetanus, Measles, and Hepatitis B in European Countries</h2>
-    <label style="font-size: 18px;"><i>Vaccination Rate in Year: </i></label>
-    <select id="year" >
-        <option class = "pointer" value="2013">2013</option>
-        <option class = "pointer" value="2014">2014</option>
-        <option class = "pointer" value="2015">2015</option>
-        <option class = "pointer" value="2016">2016</option>
-        <option class = "pointer" value="2017">2017</option>
-        <option class = "pointer" value="2018">2018</option>
-        <option class = "pointer" value="2019">2019</option>
-        <option class = "pointer" value="2020">2020</option>
-        <option class = "pointer" value="2021">2021</option>
-        <option class = "pointer" value="2022">2022</option>
-        <option class = "pointer" value="2023">2023</option>
-    </select>
 
-    <svg width="900" height="600"></svg>
-    <script src="heatmap.js"></script>
+<!-- body -->
+<body>
+    <!--Header-->
+    <header>
+        <h2>HEADER</h2>
+    </header>
+
+    <!--Section-->
+    <section>
+        <!--Drop down for users selection on years-->
+        <h2>Vaccination Rates for Tetanus, Measles, and Hepatitis B in European Countries</h2>
+        <label class="yearLabel" style="font-size: 18px;"><b>Vaccination Rate in Year: </b></label>
+        <select class="yearLabel" id="year" >
+            <option class = "pointer" value="2013">2013</option>
+            <option class = "pointer" value="2014">2014</option>
+            <option class = "pointer" value="2015">2015</option>
+            <option class = "pointer" value="2016">2016</option>
+            <option class = "pointer" value="2017">2017</option>
+            <option class = "pointer" value="2018">2018</option>
+            <option class = "pointer" value="2019">2019</option>
+            <option class = "pointer" value="2020">2020</option>
+            <option class = "pointer" value="2021">2021</option>
+            <option class = "pointer" value="2022">2022</option>
+            <option class = "pointer" value="2023">2023</option>
+        </select>
+    
+        <!--Article for description-->
+        <article>
+            <h3>Title</h3>
+            <p id="description">Heat map description details here.</p>
+        </article>
+        <svg width="900" height="600"></svg>
+        <script src="heatmap.js"></script>
+        
+    </section>
+
+    <!--Footer-->
+    <footer>
+        <p><b>FOOTER HERE</b></p>
+    </footer>
+    
 </body>
 </html>
