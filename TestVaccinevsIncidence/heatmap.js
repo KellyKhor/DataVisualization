@@ -8,7 +8,7 @@ function loadChart(year) {
 
     // set height and width
     width = 800 - margin.left - margin.right,
-    height = 550 - margin.top - margin.bottom;
+    height = 560 - margin.top - margin.bottom;
 
     // define svg function
     const svg = d3.select('svg');
