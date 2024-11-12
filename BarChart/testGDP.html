@@ -6,29 +6,28 @@
     <meta name="keywords" content="HTML, CSS"/>
     <meta name="author" content="Lim Chi Yuen"/>
 
-    <link rel="stylesheet" href="stylesheet.css"> 
+    <link href="style.css" rel="stylesheet"/>
     <title>Task 8.1 D3 Data Binding</title>
 
     <!-- Include D3.js -->
     <script src="https://d3js.org/d3.v7.min.js"></script>
-
-    <style>
-        .active {
-            background-color: #4CAF50;
-            color: white;
-        }
-        .chart-container {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-        .slider-container {
-            text-align: center;
-            margin: 20px;
-        }
-    </style>
 </head>
+
+<header class="navbar1">
+    <div class="logo1"><a href="index.html"><img src="" alt="logo"></a></div>  
+    <nav class="listing1">
+    <ul>
+        <li><a href="Map/testGeo.html" class="hover4"><span class="hover44">Map</span></a></li>
+        <li><a href="" class="hover1"><span class="hover11">Vis1</span></a></li>
+        <li><a href="BarChart/testGDP.html" class="hover2"><span class="hover22">Vis2</span></a></li>
+        <li><a href="" class="hover3"><span class="hover33">Vis3</span></a></li>
+        <li><a href="" class="hover5"><span class="hover55">Vis4</span></a></li>
+    </ul>
+    </nav>
+</header>
 <body>
+    <div class ="set_container">
+    <h1> Visualisation 1</h1>
 
     <!-- Slider container for selecting year -->
     <div class="slider-container">
@@ -37,12 +36,27 @@
         <span id="yearLabel">2023</span>
     </div>
 
+    <div class="controls">
+        <button id="sortAsc">Sort Ascending</button>
+        <button id="sortDesc">Sort Descending</button>
+    </div>
+
     <!-- Container for the bar chart -->
     <div class="chart-container">
         <!-- The SVG chart will be appended here by D3 -->
     </div>
 
+
     <!-- Load the JavaScript file -->
     <script src="testGDP.js"></script>
+    </div>
 </body>
+
+<footer class="footer"><br/><br/>
+    <p id="follow_us">FOLLOW US ON</p>
+    <img src="Images/instagram_icon.png" alt="instagram icon">&nbsp;&nbsp;
+    <img src="Images/facebook_icon.png" alt="instagram icon">&nbsp;&nbsp;
+    <img src="Images/youtube_icon.png"  alt="instagram icon"><br/><br/>
+    <p id="copyright">&copy;2024 Group21 Sdn Bhd (Registration No.XXXXXXXXX). All right reserved</p> <br/>
+</footer>
 </html>

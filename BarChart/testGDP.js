@@ -2,13 +2,15 @@ function init() {
     var w = 800;  // Chart width
     var h = 400;  // Chart height
     var barPadding = 1;
+    var currentYear = "2023";
+    var sortOrder = "asc"; // Default sorting order
 
     var svg = d3.select(".chart-container")
         .append("svg")
         .attr("width", w + 100)
         .attr("height", h + 100)
         .append("g")
-        .attr("transform", "translate(50, 20)"); // Margins for axis labels
+        .attr("transform", "translate(80, 20)");
 
     // Tooltip div for displaying data on hover
     var tooltip = d3.select("body")
@@ -26,53 +28,55 @@ function init() {
     d3.csv("EuropeanGDP.csv").then(function(data) {
         
         // Initial setup: Draw chart for the selected year
-        var year = "2023";
-        updateChart(year);
+        updateChart(currentYear, sortOrder);
 
         // Update chart on slider input
         d3.select("#yearSlider").on("input", function() {
-            year = this.value;
-            d3.select("#yearLabel").text(year);
-            updateChart(year);
+            currentYear = this.value;
+            d3.select("#yearLabel").text(currentYear);
+            updateChart(currentYear, sortOrder);
         });
 
-        // Function to update the chart for a given year
-        function updateChart(year) {
+        // Sort buttons event listeners
+        d3.select("#sortAsc").on("click", function() {
+            sortOrder = "asc";
+            updateChart(currentYear, sortOrder);
+        });
+
+        d3.select("#sortDesc").on("click", function() {
+            sortOrder = "desc";
+            updateChart(currentYear, sortOrder);
+        });
+
+        // Function to update the chart for a given year and sort order
+        function updateChart(year, order) {
             // Prepare data for the selected year
             var dataset = data.map(d => ({
                 country: d.Countries,
                 gdp: +d[year] || 0 // Use 0 if data is missing
-            })).filter(d => d.gdp > 0); // Filter out entries with 0 GDP
+            })).filter(d => d.gdp > 0);
 
-            // Sort dataset by GDP in ascending order
-            dataset.sort((a, b) => a.gdp - b.gdp);
+            // Sort dataset based on order parameter
+            dataset.sort((a, b) => order === "asc" ? a.gdp - b.gdp : b.gdp - a.gdp);
 
             // Set up x and y scales
             var xScale = d3.scaleBand()
-                .domain(dataset.map(d => d.country)) // Countries as x labels
+                .domain(dataset.map(d => d.country))
                 .range([0, w])
                 .paddingInner(0.1);
 
             var yScale = d3.scaleLinear()
-                .domain([0, d3.max(dataset, d => d.gdp)]) // GDP as y values
+                .domain([0, d3.max(dataset, d => d.gdp)])
                 .range([h, 0]);
 
             // Update bars
             var bars = svg.selectAll("rect").data(dataset, d => d.country);
 
+            // Bind hover events to both entering and updating bars
             bars.enter()
                 .append("rect")
                 .merge(bars)
-                .transition()
-                .duration(500)
-                .attr("x", d => xScale(d.country))
-                .attr("y", d => yScale(d.gdp))
-                .attr("width", xScale.bandwidth())
-                .attr("height", d => h - yScale(d.gdp))
-                .attr("fill", "steelblue");
-
-            // Tooltip event listeners for hover effect
-            bars.on("mouseover", function(event, d) {
+                .on("mouseover", function(event, d) {
                     tooltip.style("visibility", "visible")
                         .html(`Year: ${year}<br>Country: ${d.country}<br>GDP: ${d.gdp.toLocaleString()}`);
                 })
@@ -82,7 +86,14 @@ function init() {
                 })
                 .on("mouseout", function() {
                     tooltip.style("visibility", "hidden");
-                });
+                })
+                .transition()
+                .duration(500)
+                .attr("x", d => xScale(d.country))
+                .attr("y", d => yScale(d.gdp))
+                .attr("width", xScale.bandwidth())
+                .attr("height", d => h - yScale(d.gdp))
+                .attr("fill", "steelblue");
 
             bars.exit().remove();
 
@@ -119,7 +130,7 @@ function init() {
                 .attr("class", "y-label")
                 .attr("transform", "rotate(-90)")
                 .attr("x", -h / 2)
-                .attr("y", -40)
+                .attr("y", -60)
                 .style("text-anchor", "middle")
                 .text("GDP in " + year);
         }

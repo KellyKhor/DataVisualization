@@ -4,11 +4,11 @@ function init() {
 
     const color = d3.scaleQuantize()
     .range([
-        "rgb(255, 255, 204)",  // Light Yellow
-        "rgb(255, 237, 125)",  // Yellow-Orange
-        "rgb(255, 153, 51)",   // Orange
-        "rgb(255, 77, 0)",     // Orange-Red
-        "rgb(153, 0, 0)"       // Dark Red
+        "#d4f4dd", // light green
+        "#a8e6b1", // soft green
+        "#70d492", // medium green
+        "#36b3b1", // teal
+        "#0066cc"  // deep blue
     ]);
 
     const projection = d3.geoMercator()

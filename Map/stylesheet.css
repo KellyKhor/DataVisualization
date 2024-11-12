@@ -174,12 +174,12 @@ button {
     font-weight: bold;
 }
 
-/* YLOrRd color scheme */
-.legend-item:nth-child(1) { background-color: rgb(255, 255, 204); } /* 0-20% */
-.legend-item:nth-child(2) { background-color: rgb(255, 237, 125); } /* 21-40% */
-.legend-item:nth-child(3) { background-color: rgb(255, 153, 51); }  /* 41-60% */
-.legend-item:nth-child(4) { background-color: rgb(255, 77, 0); }    /* 61-80% */
-.legend-item:nth-child(5) { background-color: rgb(153, 0, 0); }     /* 81-100% */
+/* Custom colors based on your updated HTML */
+.legend-item:nth-child(1) { background-color: #d4f4dd; } /* 0-20%: Light Green */
+.legend-item:nth-child(2) { background-color: #a8e6b1; } /* 21-40%: Soft Green */
+.legend-item:nth-child(3) { background-color: #70d492; } /* 41-60%: Medium Green */
+.legend-item:nth-child(4) { background-color: #36b3b1; } /* 61-80%: Teal */
+.legend-item:nth-child(5) { background-color: #0066cc; } /* 81-100%: Blue */
 
 /* Map container styling */
 .map-container {
