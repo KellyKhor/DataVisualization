@@ -61,14 +61,80 @@ a:hover .hover55 {
     width: 100%;
 }
 
-/* Styling for "FOLLOW US ON" text */
-#follow_us {
+#group {
     font-size: 20px;
     color: mintcream;
 }
-
-/* Copyright text styling */
-#copyright {
-    font-size: 12.5px;
+#names {
     color: mintcream;
+    font-style: italic;
+    font-size: 15px;
+    font-family:'Poppins', sans-serif;
+    word-spacing: 20px;
+    margin-top: 20px;
+}
+#course {
+    font-size: 12.5px;
+    font-style: italic;
+    color: mintcream;
+    margin-top: 30px;
+}
+h2 {
+    text-align: center;
+    margin-top: 30px;
+    /* margin-bottom: 50px; */
+}
+section {
+    background-color: white;
+    padding: 0%;
+    margin-top: 0px;
+    padding-top: 1rem;
+    padding-bottom: 50px;
+    /* float: right; */
+}
+svg {
+    margin-left: 80px;
+    margin-top: 40px;
+}
+article {
+    background-color: rgb(162, 162, 165);
+    float: right;
+    color: white;
+    text-align: left;
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    margin-right: 120px;
+    margin-top: 50px;
+}
+#description {
+    line-height: 25px;
+    margin-top: 15px;
+}
+.axis-label {
+    font-size: 12px;
+    font-weight: bold;
+}
+.yearLabel {
+    margin-left: 80px;
+    margin-top: 40px;
+    float: left;
+    font-size: 17px;
+}
+#year {
+    background-color:  rgb(227, 227, 237);           
+    padding: 3px;
+    font-size: 15px;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: 8px;
+    margin-top: 40px;
+}
+.pointer {
+    font-size: 15px;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
 }
