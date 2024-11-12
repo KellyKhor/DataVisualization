@@ -3,13 +3,13 @@ function init() {
     const h = 700;
 
     const color = d3.scaleQuantize()
-        .range([
-            "rgb(242, 240, 247)", 
-            "rgb(203, 201, 226)", 
-            "rgb(158, 154, 200)", 
-            "rgb(117, 107, 177)", 
-            "rgb(84, 39, 143)"
-        ]);
+    .range([
+        "rgb(255, 255, 204)",  // Light Yellow
+        "rgb(255, 237, 125)",  // Yellow-Orange
+        "rgb(255, 153, 51)",   // Orange
+        "rgb(255, 77, 0)",     // Orange-Red
+        "rgb(153, 0, 0)"       // Dark Red
+    ]);
 
     const projection = d3.geoMercator()
         .center([10, 50])
@@ -17,7 +17,7 @@ function init() {
         .scale(400);
 
     const path = d3.geoPath().projection(projection);
-    const svg = d3.select("body")
+    const svg = d3.select(".map-container")
         .append("svg")
         .attr("width", w)
         .attr("height", h);
