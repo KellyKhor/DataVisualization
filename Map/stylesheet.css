@@ -1,55 +1,189 @@
-/* Reset some default styles */
-body, h1, p {
-    margin: 5px;
-    padding: 5px;
+/* Universal reset and font setup */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-/* Center the content */
+/* Body styling */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;  /* Ensure the body takes full height of the viewport */
+    padding-bottom: 100px;  /* Adjust height to leave room for footer */
+}
+
+.set_container{
+    padding :1%;
+}
+
+/* Navbar styling */
+.navbar1 {
+    display: flex;
+    align-items: center;
+    padding: 0 3%;
+    background-color: black;
+}
+
+.logo1 img {
+    max-width: 100%;
+}
+
+.listing1 {
+    flex: 1;
+    text-align: right;
+    transition: 0.5s;
+}
+
+.listing1 ul li {
+    display: inline-block;
+    margin: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: darkturquoise;
+}
+
+a:hover .hover11,
+a:hover .hover22,
+a:hover .hover33,
+a:hover .hover44,
+a:hover .hover55 {
+    color: #fff;
+    text-shadow: 0 0 10px #fff,
+                 0 0 20px #fff,
+                 0 0 40px #fff,
+                 0 0 80px #fff,
+                 0 0 120px #fff;
+}
+
+/* Main content area */
+.main-content {
+    flex: 1;  /* Takes the available space in the middle */
+}
+
+/* Footer styling */
+.footer {
+    background-color: #333333;
+    text-align: center;
+    width: 100%;
+    padding: 20px 0;
+    position: relative;
+}
+
+#follow_us {
+    font-size: 20px;
+    color: mintcream;
+}
+
+#copyright {
+    font-size: 12.5px;
+    color: mintcream;
+}
+
+/* Center content */
 .container {
     text-align: center;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
+    margin: 0;
+    padding: 0;
 }
 
-/* Style the heading */
+/* Heading and paragraph styling */
 h1 {
-    font-family: Arial, sans-serif;
     font-size: 24px;
     color: #333;
     margin-bottom: 20px;
 }
 
-/* Style the image */
-img {
-    max-width: 50%;
-    height: auto;
-    border: 1px solid #ddd;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Style the paragraph */
 p {
-    font-family: Arial, sans-serif;
     font-size: 16px;
     color: #666;
     margin-top: 20px;
 }
 
+/* Button container styling */
 .button-container {
-    display: flex; /* Use flexbox to arrange buttons side by side */
-    gap: 10px; /* Adds space between the buttons */
-    margin-bottom: 20px; /* Adds space below the buttons */
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 button {
-    font-size: 20px; /* Makes the text inside the button bigger */
-    padding: 15px 30px; /* Increases the button size by adding padding */
-    border-radius: 5px; /* Rounds the corners of the buttons */
+    font-size: 20px;
+    padding: 15px 30px;
+    border-radius: 5px;
 }
 
-.line{
+.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Line styling */
+.line {
     fill: none;
     stroke: slategrey;
-    stroke-width: 0.5 ;
+    stroke-width: 0.5;
+}
+
+/* Main content area for map and legend */
+.map-legend-container {
+    display: flex;
+    justify-content: space-between;  /* Place map and legend side by side */
+    align-items: flex-start;  /* Align them at the top */
+    width: 100%;
+}
+
+/* Map container styling */
+.map-container {
+    width: 70%;  /* Adjust the width of the map */
+    order: 1; /* Make the map come first (on the left) */
+    /* Any other styling for your map goes here */
+}
+
+/* Legend styling */
+.legend {
+    display: flex;
+    flex-direction: column; /* Stack the items vertically */
+    align-items: flex-start;
+    width: 30%;  /* Adjust the width of the legend */
+    padding: 10px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    order: 2; /* Make the legend come second (on the right) */
+}
+
+.legend h4 {
+    margin: 0 0 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+.legend-item {
+    display: block;  /* Make each item a block-level element */
+    width: 100%;  /* Make each item take full width */
+    padding: 8px;
+    margin: 5px 0;
+    color: #333;
+    text-align: center;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* YLOrRd color scheme */
+.legend-item:nth-child(1) { background-color: rgb(255, 255, 204); } /* 0-20% */
+.legend-item:nth-child(2) { background-color: rgb(255, 237, 125); } /* 21-40% */
+.legend-item:nth-child(3) { background-color: rgb(255, 153, 51); }  /* 41-60% */
+.legend-item:nth-child(4) { background-color: rgb(255, 77, 0); }    /* 61-80% */
+.legend-item:nth-child(5) { background-color: rgb(153, 0, 0); }     /* 81-100% */
+
+/* Map container styling */
+.map-container {
+    width: 70%;  /* Adjust the width of the map */
+    order: 2; /* Make the map come second */
+    /* Any other styling for your map goes here */
 }

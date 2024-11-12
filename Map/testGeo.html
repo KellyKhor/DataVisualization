@@ -12,25 +12,24 @@
     <!-- Include D3.js -->
     <script src="https://d3js.org/d3.v7.min.js"></script>
 
-    <style>
-        .button-container {
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        button {
-            margin-right: 10px;
-            padding: 5px 10px;
-            font-size: 14px;
-        }
-        .active {
-            background-color: #4CAF50;
-            color: white;
-        }
-    </style>
 </head>
+
+<header class="navbar1">
+    <div class="logo1"><a href="../index.html"><img src="" alt="logo"></a></div>  
+    <nav class="listing1">
+    <ul>
+        <li><a href="testGeo.html" class="hover4"><span class="hover44">Map</span></a></li>
+        <li><a href="" class="hover1"><span class="hover11">Vis1</span></a></li>
+        <li><a href="" class="hover2"><span class="hover22">Vis2</span></a></li>
+        <li><a href="" class="hover3"><span class="hover33">Vis3</span></a></li>
+        <li><a href="" class="hover5"><span class="hover55">Vis4</span></a></li>
+    </ul>
+    </nav>
+</header>
+
 <body>
-
-
+    <div class = set_container>
+    <h1>Map</h1>
     <!-- Button container for datasets -->
     <div class="button-container dataset-buttons"></div>
 
@@ -39,5 +38,31 @@
 
     <!-- Load the JavaScript file -->
     <script src="testGeo.js"></script>
+
+    <div class="map-legend-container">
+        <!-- Map (on the left) -->
+        <div class="map-container">
+            <!-- The map will be added to this container by the JavaScript code -->
+        </div>
+    
+        <!-- Legend (on the right) -->
+        <div class="legend">
+            <h4>Percentage Coverage</h4>
+            <div class="legend-item" style="background-color: rgb(255, 255, 204);">0-20%</div>
+            <div class="legend-item" style="background-color: rgb(255, 237, 125);">21-40%</div>
+            <div class="legend-item" style="background-color: rgb(255, 153, 51);">41-60%</div>
+            <div class="legend-item" style="background-color: rgb(255, 77, 0);">61-80%</div>
+            <div class="legend-item" style="background-color: rgb(153, 0, 0);">81-100%</div>
+        </div>
+    </div>
+    </div>
 </body>
+
+<footer class="footer"><br/><br/>
+    <p id="follow_us">FOLLOW US ON</p>
+    <img src=".../Images/instagram_icon.png" alt="instagram icon">&nbsp;&nbsp;
+    <img src="Images/facebook_icon.png" alt="instagram icon">&nbsp;&nbsp;
+    <img src="Images/youtube_icon.png"  alt="instagram icon"><br/><br/>
+    <p id="copyright">&copy;2024 Group21 Sdn Bhd (Registration No.XXXXXXXXX). All right reserved</p> <br/>
+</footer>
 </html>
