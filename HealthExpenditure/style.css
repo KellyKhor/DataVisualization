@@ -43,25 +43,6 @@ a:hover .hover11, a:hover .hover22, a:hover .hover33, a:hover .hover44, a:hover 
     width: 100%;
 }
 
-#group {
-    font-size: 20px;
-    color: mintcream;
-}
-
-#names {
-    color: mintcream;
-    font-style: italic;
-    font-size: 15px;
-    word-spacing: 20px;
-    margin-top: 20px;
-}
-
-#course {
-    font-size: 12.5px;
-    font-style: italic;
-    color: mintcream;
-    margin-top: 30px;
-}
 
 h2 {
     text-align: center;
@@ -143,4 +124,17 @@ button {
 
 .legend-item circle {
     margin-right: 8px;
+}
+
+.bubble text {
+    font-size: 10px;
+    text-anchor: middle;
+    pointer-events: none;
+}
+
+button {
+    margin: 10px;
+    padding: 5px 15px;
+    font-size: 16px;
+    cursor: pointer;
 }
