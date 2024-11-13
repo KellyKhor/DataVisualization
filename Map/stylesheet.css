@@ -193,3 +193,22 @@ button {
     order: 2; /* Make the map come second */
     /* Any other styling for your map goes here */
 }
+h2 {
+    text-align: center;
+    margin-top: 30px;
+}
+
+article {
+    background-color: rgb(162, 162, 165);
+    float: right;
+    color: white;
+    text-align: left;
+    padding: 80px 70px;
+    margin-right: 120px;
+    margin-top: 50px;
+}
+
+#description {
+    line-height: 25px;
+    margin-top: 15px;
+}
