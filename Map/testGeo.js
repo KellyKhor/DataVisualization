@@ -1,6 +1,6 @@
 function init() {
-    const w = 600;
-    const h = 700;
+    const w = 950;
+    const h = 1000;
 
     const color = d3.scaleQuantize()
     .range([
@@ -12,9 +12,10 @@ function init() {
     ]);
 
     const projection = d3.geoMercator()
-        .center([10, 50])
-        .translate([w / 2, h / 2])
-        .scale(400);
+    .center([20, 50])  // Keep the center as needed
+    .translate([w / 2, h / 2])  // Adjust the translation based on the new width and height
+    .scale(600);  // Increase the scale value to zoom in on the map and make it bigger
+
 
     const path = d3.geoPath().projection(projection);
     const svg = d3.select(".map-container")
