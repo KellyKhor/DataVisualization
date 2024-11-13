@@ -4,6 +4,7 @@ function init() {
     var barPadding = 1;
     var currentYear = "2023";
     var sortOrder = "asc"; // Default sorting order
+    var lineDisplayed = false; // Track line plot visibility
 
     var svg = d3.select(".chart-container")
         .append("svg")
@@ -45,6 +46,12 @@ function init() {
 
         d3.select("#sortDesc").on("click", function() {
             sortOrder = "desc";
+            updateChart(currentYear, sortOrder);
+        });
+
+        // Toggle line plot on button click
+        d3.select("#toggleLinePlot").on("click", function() {
+            lineDisplayed = !lineDisplayed;
             updateChart(currentYear, sortOrder);
         });
 
@@ -133,6 +140,35 @@ function init() {
                 .attr("y", -60)
                 .style("text-anchor", "middle")
                 .text("GDP in " + year);
+
+            // Update or remove the line plot
+            svg.selectAll(".line").remove();
+            if (lineDisplayed) {
+                var line = d3.line()
+                    .x(d => xScale(d.country) + xScale.bandwidth() / 2) // Center line on bars
+                    .y(d => yScale(d.gdp));
+
+                var path = svg.append("path")
+                    .datum(dataset)
+                    .attr("class", "line")
+                    .attr("fill", "none")
+                    .attr("stroke", "red")
+                    .attr("stroke-width", 2)
+                    .attr("d", line);
+
+                // Get the total length of the path for the transition
+                var totalLength = path.node().getTotalLength();
+
+                // Apply transition to the path
+                path
+                    .attr("stroke-dasharray", totalLength + " " + totalLength)
+                    .attr("stroke-dashoffset", totalLength)
+                    .transition()
+                    .duration(2000) // Duration of the transition in milliseconds
+                    .ease(d3.easeLinear)
+                    .attr("stroke-dashoffset", 0);
+            }
+
         }
 
     }).catch(function(error) {

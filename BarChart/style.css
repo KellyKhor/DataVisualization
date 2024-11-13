@@ -83,6 +83,13 @@
 }
 
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
 /* Navbar container styling */
 .navbar1 {
     display: flex;
@@ -139,19 +146,21 @@ a:hover .hover55 {
     width: 100%;
 }
 
-/* Styling for "FOLLOW US ON" text */
-#follow_us {
+#group {
     font-size: 20px;
     color: mintcream;
 }
-
-/* Copyright text styling */
-#copyright {
-    font-size: 12.5px;
+#names {
     color: mintcream;
+    font-style: italic;
+    font-size: 15px;
+    font-family:'Poppins', sans-serif;
+    word-spacing: 20px;
+    margin-top: 20px;
 }
-
-/* Section or div-specific padding */
-.section, .container, .content {
-    padding: 10px; /* Padding only inside specific sections or divs */
+#course {
+    font-size: 12.5px;
+    font-style: italic;
+    color: mintcream;
+    margin-top: 30px;
 }
