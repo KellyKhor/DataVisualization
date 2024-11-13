@@ -62,7 +62,7 @@ function loadChart(year) {
 
         // dynamically set the color scale based on the max incidence value in data
         let maxIncidence = d3.max(data, d => d.incidence);
-        const colorScale = d3.scaleSequential(d3.interpolateInferno)
+        const colorScale = d3.scaleSequential(d3.interpolateYlGnBu   )
                              .domain([0, maxIncidence]);
 
         // add x-axis to the map
@@ -140,7 +140,7 @@ function loadChart(year) {
               .attr("x", legendWidth / 2)
               .attr("y", -10)
               .style("text-anchor", "middle")
-              .text("Reported Cases");
+              .text("No. of Reported Cases");
     });
 }
 
