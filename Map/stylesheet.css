@@ -136,19 +136,18 @@ button {
     stroke-width: 0.5;
 }
 
-/* Main content area for map and legend */
 .map-legend-container {
     display: flex;
-    justify-content: space-between;  /* Place map and legend side by side */
-    align-items: flex-start;  /* Align them at the top */
-    width: 100%;
+    align-items: flex-start;
+    gap: 20px; /* Spacing between map and legend */
 }
 
-/* Map container styling */
 .map-container {
-    width: 70%;  /* Adjust the width of the map */
-    order: 1; /* Make the map come first (on the left) */
-    /* Any other styling for your map goes here */
+    width: 80%;  /* Increase the width to 80% or any value that suits your design */
+    max-width: 800px;  /* Set a larger max-width for the map */
+    margin: 0 auto;  /* Keep the centering */
+    height: 800px;  /* Set a fixed height for the map */
+    order: 1;
 }
 
 /* Legend styling */
@@ -193,4 +192,23 @@ button {
     width: 70%;  /* Adjust the width of the map */
     order: 2; /* Make the map come second */
     /* Any other styling for your map goes here */
+}
+h2 {
+    text-align: center;
+    margin-top: 30px;
+}
+
+article {
+    background-color: rgb(162, 162, 165);
+    float: right;
+    color: white;
+    text-align: left;
+    padding: 80px 70px;
+    margin-right: 120px;
+    margin-top: 50px;
+}
+
+#description {
+    line-height: 25px;
+    margin-top: 15px;
 }

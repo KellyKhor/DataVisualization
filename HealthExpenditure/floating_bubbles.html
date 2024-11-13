@@ -6,29 +6,11 @@
     <title>Health Expenditure</title>
     <link href="style.css" rel="stylesheet"/>   
     <script src="https://d3js.org/d3.v7.min.js"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-
-        .bubble text {
-            font-size: 10px;
-            text-anchor: middle;
-            pointer-events: none;
-        }
-
-        button {
-            margin: 10px;
-            padding: 5px 15px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-    </style>
 </head>
 <body>
         <!--Header-->
         <header class="navbar1">
-            <div class="logo1"><a href="/index.html"><img src="Logo1.png" alt="logo"></a></div>  
+            <div class="logo1"><a href="../index.html"><img src="../Images/Logo.png" alt="logo"></a></div>  
             <nav class="listing1">
             <ul>
                 <li><a href="/Map/testGeo.html" class="hover4"><span class="hover44">Map</span></a></li>
@@ -54,11 +36,18 @@
             to increase awareness, dispel myths, and make vaccines more accessible to everyone—every dose counts in creating a healthier, safer world for all.</p>
     </article>
 
-    <button id="prevYear">Previous Year</button>
-    <button id="nextYear">Next Year</button>
-    <br><br><br><br><br><br><br><br><br><br><br>
+
+    <!-- Replace buttons with dropdown -->
+    <div class="dropdown-container">
+        <label for="yearSelector">Select Year:</label>
+        <select id="yearSelector"></select>
+            <!--options dynamically added-->
+    </div>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br>
     <div id="chart"></div>
     <script src="floating_bubbles.js"></script>
+    <br><br><br><br>
 
         <!--Footer-->
         <footer class="footer"><br/><br/>

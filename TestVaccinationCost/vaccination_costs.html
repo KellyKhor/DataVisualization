@@ -1,14 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Vaccination Costs Line Chart</title>
-        <script src="https://d3js.org/d3.v7.min.js"></script>
-    </head>
-    <body>
-        <h1>Vaccination Costs Over Time</h1>
-        <div id="chart"></div>
-        <script src="vaccination_costs.js"></script>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaccination Cost</title>
+    <link href="style.css" rel="stylesheet"/>   
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+        <!--Header-->
+        <header class="navbar1">
+            <div class="logo1"><a href="../index.html"><img src="../Images/Logo.png" alt="logo"></a></div>  
+            <nav class="listing1">
+            <ul>
+                <li><a href="/Map/testGeo.html" class="hover4"><span class="hover44">Map</span></a></li>
+                <li><a href="/TestVaccinevsIncidence/heatmap.html" class="hover1"><span class="hover11">Vis1</span></a></li>
+                <li><a href="/BarChart/testGDP.html" class="hover2"><span class="hover22">Vis2</span></a></li>
+                <li><a href="/TestVaccinationCost/vaccination_costs.html" class="hover3"><span class="hover33">Vis3</span></a></li>
+                <li><a href="/HealthExpenditure/floating_bubbles.html" class="hover5"><span class="hover55">Vis4</span></a></li>
+            </ul>
+            </nav>
+        </header>
+
+
+    <h2>Vaccination Costs Over Time</h2>
+
+    <article>
+        <h3>Vaccination Matters!</h3>
+        <p id="description">
+            Increasing vaccination rates for preventable diseases like measles, tetanus, and hepatitis B is essential to protecting public health and preventing 
+            dangerous outbreaks. Vaccines for these diseases have been proven safe and effective, yet some communities still face low coverage due to barriers like 
+            misinformation, limited healthcare access, and economic challenges. Measles, for instance, is highly contagious and can spread quickly, causing severe complications, 
+            especially in unvaccinated populations. Tetanus poses life-threatening risks without immunization, while hepatitis B can lead to chronic liver issues and even cancer. 
+            By getting vaccinated, you not only protect yourself but also contribute to the safety of your community, especially those who are most vulnerable. Let's work together 
+            to increase awareness, dispel myths, and make vaccines more accessible to everyone—every dose counts in creating a healthier, safer world for all.</p>
+    </article>
+
+
+    <div id="chart"></div>
+    <script src="vaccination_costs.js"></script>
+
+        <!--Footer-->
+        <footer class="footer"><br/><br/>
+            <p id="group">Group 21 members:</p>
+            <p id="names">KhorJingYin LimChiYuen   AngelLimSzeYing</p>
+            <p id="course">COS30045 Data Visualisation Group Assignment - Aug 2024</p> <br/>
+        </footer>
+</body>
 </html>
+

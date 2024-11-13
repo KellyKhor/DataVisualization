@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar1 {
+    display: flex;
+    align-items: center;
+    padding: 0 3%;
+    background-color: black;
+}
+
+.logo1 img {
+    max-width: 100%;
+}
+
+.listing1 {
+    flex: 1;
+    text-align: right;
+    transition: 0.5s;
+}
+
+.listing1 ul li {
+    display: inline-block;
+    margin: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: darkturquoise;
+}
+
+a:hover .hover11, a:hover .hover22, a:hover .hover33, a:hover .hover44, a:hover .hover55 {
+    color: #fff;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #fff, 0 0 80px #fff, 0 0 120px #fff;
+}
+
+.footer {
+    background-color: #333333;
+    text-align: center;
+    width: 100%;
+}
+
+#group {
+    font-size: 20px;
+    color: mintcream;
+}
+#names {
+    color: mintcream;
+    font-style: italic;
+    font-size: 15px;
+    font-family:'Poppins', sans-serif;
+    word-spacing: 20px;
+    margin-top: 20px;
+}
+#course {
+    font-size: 12.5px;
+    font-style: italic;
+    color: mintcream;
+    margin-top: 30px;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 30px;
+}
+
+article {
+    background-color: rgb(162, 162, 165);
+    float: right;
+    color: white;
+    text-align: left;
+    padding: 80px 70px;
+    margin-right: 120px;
+    margin-top: 50px;
+}
+
+#description {
+    line-height: 25px;
+    margin-top: 15px;
+}
+
+
+#chart {
+    display: flex;
+    justify-content: center; /* Horizontally centers the SVG */
+    align-items: center;    /* Vertically aligns the SVG */
+    margin: 0 auto;         /* Centers the div itself within its container */
+    width: 100%;            /* Ensures full-width responsiveness */
+    height: 600px;          /* Adjust as needed for vertical spacing */
+}
