@@ -5,22 +5,17 @@
     font-family: 'Poppins', sans-serif;
 }
 
-/* Navbar container styling */
 .navbar1 {
     display: flex;
     align-items: center;
-    padding: 0;
-    padding-left: 3%;
-    padding-right: 3%;
+    padding: 0 3%;
     background-color: black;
 }
 
-/* Logo styling */
 .logo1 img {
     max-width: 100%;
 }
 
-/* Navigation list styling */
 .listing1 {
     flex: 1;
     text-align: right;
@@ -32,32 +27,19 @@
     margin: 20px;
 }
 
-/* Link styling */
 a {
     text-decoration: none;
     color: darkturquoise;
 }
 
-/* Hover effects for links */
-a:hover .hover11,
-a:hover .hover22,
-a:hover .hover33,
-a:hover .hover44,
-a:hover .hover55 {
+a:hover .hover11, a:hover .hover22, a:hover .hover33, a:hover .hover44, a:hover .hover55 {
     color: #fff;
-    text-shadow: 0 0 10px #fff,
-                 0 0 20px #fff,
-                 0 0 40px #fff,
-                 0 0 80px #fff,
-                 0 0 120px #fff;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #fff, 0 0 80px #fff, 0 0 120px #fff;
 }
 
-/* Footer container styling */
 .footer {
     background-color: #333333;
     text-align: center;
-    position: absolute;
-    bottom: 100;
     width: 100%;
 }
 
@@ -65,50 +47,58 @@ a:hover .hover55 {
     font-size: 20px;
     color: mintcream;
 }
+
 #names {
     color: mintcream;
     font-style: italic;
     font-size: 15px;
-    font-family:'Poppins', sans-serif;
     word-spacing: 20px;
     margin-top: 20px;
 }
+
 #course {
     font-size: 12.5px;
     font-style: italic;
     color: mintcream;
     margin-top: 30px;
 }
+
 h2 {
     text-align: center;
     margin-top: 30px;
-    /* margin-bottom: 50px; */
 }
-section {
-    background-color: white;
-    padding: 0%;
-    margin-top: 0px;
-    padding-top: 1rem;
-    padding-bottom: 50px;
-    /* float: right; */
-}
-svg {
-    margin-left: 80px;
-    margin-top: 40px;
-}
+
 article {
     background-color: rgb(162, 162, 165);
     float: right;
     color: white;
     text-align: left;
-    padding-left: 70px;
-    padding-right: 70px;
-    padding-top: 80px;
-    padding-bottom: 80px;
+    padding: 80px 70px;
     margin-right: 120px;
     margin-top: 50px;
 }
+
 #description {
     line-height: 25px;
     margin-top: 15px;
+}
+
+.bubble-chart-container {
+    text-align: center;
+    margin: 50px auto;
+}
+
+svg {
+    display: block;
+    margin: 0 auto;
+    height: 800px;
+    width: 1200px;
+    overflow: visible;
+}
+
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
 }

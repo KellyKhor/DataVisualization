@@ -1,5 +1,5 @@
 function init() {
-    const width = 1200; // Increased width
+    const width = 1200; 
     const height = 600;
     const margin = 20;
 
@@ -29,18 +29,23 @@ function init() {
         sizeScale.domain(d3.extent(data, d => d.health_expenditure_percentage));
         colorScale.domain([...new Set(data.map(d => d.disease))]);
 
+        // Simulation variable (accessible in drag functions)
+        let simulation;
+
         function updateChart(year) {
             const nodes = yearData.get(year).map(d => ({
                 ...d,
                 radius: sizeScale(d.health_expenditure_percentage)
             }));
 
-            const simulation = d3.forceSimulation(nodes)
+            // Initialize simulation
+            simulation = d3.forceSimulation(nodes)
                 .force("x", d3.forceX(width / 2).strength(0.05))
                 .force("y", d3.forceY(height / 2).strength(0.05))
                 .force("collision", d3.forceCollide(d => d.radius + 2))
                 .on("tick", ticked);
 
+            // Join data
             const bubbles = svg.selectAll(".bubble").data(nodes, d => d.country + d.disease);
             bubbles.exit().remove();
 
@@ -80,20 +85,25 @@ function init() {
         }
 
         function dragStart(event, d) {
-            if (!event.active) d.fx = d.x, d.fy = d.y;
+            if (!event.active) simulation.alphaTarget(0.3).restart(); // Activate simulation
+            d.fx = d.x; // Fix x-position
+            d.fy = d.y; // Fix y-position
         }
 
         function dragged(event, d) {
-            d.fx = event.x;
-            d.fy = event.y;
+            d.fx = event.x; // Update x-position
+            d.fy = event.y; // Update y-position
         }
 
         function dragEnd(event, d) {
-            if (!event.active) d.fx = null, d.fy = null;
+            if (!event.active) simulation.alphaTarget(0); // Cool simulation
+            d.fx = null; // Release x-position
+            d.fy = null; // Release y-position
         }
 
         updateChart(currentYear);
 
+        // Year navigation
         d3.select("#prevYear").on("click", () => {
             currentYear = years[(years.indexOf(currentYear) - 1 + years.length) % years.length];
             updateChart(currentYear);
