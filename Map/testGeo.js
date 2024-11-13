@@ -80,6 +80,14 @@ function init() {
                             const value = d.properties.value !== null ? (d.properties.value * 100).toFixed(2) + "%" : "No data";
                             tooltip.style("visibility", "visible")
                                 .html(`<strong>${d.properties.NAME}</strong><br>Value: ${value}`);
+                        
+                            // Dim all countries
+                            svg.selectAll("path")
+                                .style("opacity", 0.3);
+                        
+                            // Highlight hovered country
+                            d3.select(this)
+                                .style("opacity", 1);
                         })
                         .on("mousemove", function(event) {
                             tooltip.style("top", (event.pageY - 10) + "px")
@@ -87,7 +95,12 @@ function init() {
                         })
                         .on("mouseout", function() {
                             tooltip.style("visibility", "hidden");
+                        
+                            // Reset opacity for all countries
+                            svg.selectAll("path")
+                                .style("opacity", 1);
                         });
+                        
 
                     paths.exit().remove();
                 });
