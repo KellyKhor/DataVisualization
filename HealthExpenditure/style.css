@@ -102,3 +102,45 @@ button {
     font-size: 16px;
     cursor: pointer;
 }
+
+.dropdown-container {
+    text-align: center;
+    margin-top: 450px; /* Increase this value to move the dropdown further down */
+    margin-bottom: 20px; /* Keeps space below the dropdown */
+}
+
+
+    #yearSelector {
+        width: 200px; /* Make the dropdown wider */
+        height: 40px; /* Increase the height */
+        font-size: 16px; /* Increase font size for better visibility */
+        text-align: center; /* Center text inside the dropdown */
+        cursor: pointer;
+        border-radius: 8px; /* Add rounded corners */
+        border: 1px solid #ccc; /* Add a border */
+        padding: 5px;
+    }
+
+    label {
+        font-size: 18px; /* Label font size */
+        margin-right: 10px; /* Add some space between label and dropdown */
+    }
+
+
+    /* Add this to your existing CSS */
+
+.legend {
+    font-size: 14px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.legend-item circle {
+    margin-right: 8px;
+}
