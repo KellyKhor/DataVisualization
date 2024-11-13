@@ -92,7 +92,7 @@ function loadChart(year) {
                   .attr("y", d => yScale(d.country))
                   .attr("width", xScale.bandwidth())
                   .attr("height", yScale.bandwidth())
-                  .style("fill", d => colorScale(d.vaccine_rate))
+                  .style("fill", d => colorScale(d.incidence))
                   .style("stroke", "grey")
                   // mouse over for tooltip - print disease, vaccine rate, & reported case
                   .on("mouseover", (event, d) => {
