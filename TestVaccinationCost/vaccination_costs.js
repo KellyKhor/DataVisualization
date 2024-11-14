@@ -19,12 +19,12 @@ function init() {
     d3.csv("vaccination_costs.csv").then(function (data) {
         data.forEach(d => {
             d.Year = +d.Year;
-            d.HepatitisA = +d.HepatitisA;
+            d.HepatitisB = +d.HepatitisB;
             d.Measles = +d.Measles;
             d.Tetanus = +d.Tetanus;
         });
 
-        var diseases = ["HepatitisA", "Measles", "Tetanus"];
+        var diseases = ["HepatitisB", "Measles", "Tetanus"];
         var dataset = diseases.map(disease => {
             return data.map(d => {
                 return { Year: d.Year, value: d[disease], disease: disease };
@@ -32,12 +32,12 @@ function init() {
         });
 
         xScale.domain([d3.min(data, d => d.Year), d3.max(data, d => d.Year)]);
-        var maxValue = d3.max(data, d => Math.max(d.HepatitisA, d.Measles, d.Tetanus));
+        var maxValue = d3.max(data, d => Math.max(d.HepatitisB, d.Measles, d.Tetanus));
         yScale.domain([0, maxValue + 0.01]);
 
         var color = d3.scaleOrdinal()
             .domain(diseases)
-            .range(["steelblue", "green", "orange"]);
+            .range(["green", "steelblue", "orange"]);
 
         // Add grid lines
         svg.append("g")
