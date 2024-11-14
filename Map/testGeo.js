@@ -79,7 +79,7 @@ function init() {
                             // Show tooltip with country name and data value as a percentage
                             const value = d.properties.value !== null ? (d.properties.value * 100).toFixed(2) + "%" : "No data";
                             tooltip.style("visibility", "visible")
-                                .html(`<strong>${d.properties.NAME}</strong><br>Value: ${value}`);
+                                .html(`<strong>${d.properties.NAME}</strong><br>Vaccination Coverage: ${value}`);
                         
                             // Dim all countries
                             svg.selectAll("path")
