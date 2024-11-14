@@ -5,6 +5,9 @@ function init() {
     let currentYear = 2016;
     const years = [2016, 2017, 2018, 2019, 2020];
 
+    // Track selected legend item
+    let selectedLegend = "All";
+
     // Set up SVG container
     const svg = d3.select("#chart")
         .append("svg")
@@ -12,8 +15,20 @@ function init() {
         .attr("height", height);
 
     // Scales
-    const sizeScale = d3.scaleSqrt().range([10, 50]);
+    const sizeScale = d3.scaleSqrt().range([10, 50]); // Square root scale for bubble radius
     const colorScale = d3.scaleOrdinal(d3.schemeCategory10);
+
+    // Create tooltip
+    const tooltip = d3.select("body")
+        .append("div")
+        .attr("class", "tooltip")
+        .style("position", "absolute")
+        .style("background-color", "white")
+        .style("border", "1px solid gray")
+        .style("padding", "8px")
+        .style("border-radius", "4px")
+        .style("visibility", "hidden")
+        .style("pointer-events", "none");
 
     // Populate dropdown
     const yearSelector = d3.select("#yearSelector");
@@ -40,11 +55,12 @@ function init() {
         // Create the legend
         const legend = svg.append("g")
             .attr("class", "legend")
-            .attr("transform", "translate(0, 20)"); // Position it 20px down from the top
+            .attr("transform", "translate(0, 20)");
 
-        // Add legend items
+        // Add "All" legend item at the top
+        const legendData = ["All", ...colorScale.domain()];
         const legendItems = legend.selectAll(".legend-item")
-            .data(colorScale.domain())
+            .data(legendData)
             .enter()
             .append("g")
             .attr("class", "legend-item")
@@ -55,7 +71,7 @@ function init() {
             .attr("cx", 10)
             .attr("cy", 10)
             .attr("r", 8)
-            .attr("fill", d => colorScale(d));
+            .attr("fill", d => (d === "All" ? "gray" : colorScale(d)));
 
         // Legend text
         legendItems.append("text")
@@ -64,25 +80,36 @@ function init() {
             .text(d => d)
             .style("font-size", "14px");
 
+        // Add click event to legend items
+        legendItems.on("click", function (event, d) {
+            selectedLegend = d; // Update selected legend
+            updateChart(currentYear); // Update chart based on selection
+        });
+
         function updateChart(year) {
             // Get the data for the selected year
-            const nodes = yearData.get(year).map(d => ({
+            let nodes = yearData.get(year).map(d => ({
                 ...d,
                 radius: sizeScale(d.health_expenditure_percentage)
             }));
 
-            // Reset the simulation by removing any old bubbles and reinitializing forces
+            // Filter nodes if a specific legend is selected (not "All")
+            if (selectedLegend !== "All") {
+                nodes = nodes.filter(d => d.disease === selectedLegend);
+            }
+
+            // Reset the simulation
             const simulation = d3.forceSimulation(nodes)
                 .force("x", d3.forceX(width / 2).strength(0.05))
                 .force("y", d3.forceY(height / 2).strength(0.05))
                 .force("collision", d3.forceCollide(d => d.radius + 2))
-                .alpha(1)  // Make sure the simulation starts with some activity
-                .alphaDecay(0.01);  // Slow down the alpha decay, keeping the simulation active for longer
+                .alpha(1) 
+                .alphaDecay(0.01);
 
             // Remove existing bubbles
             svg.selectAll(".bubble").remove();
 
-            // Create new bubbles with drag behavior
+            // Create new bubbles
             const newBubbles = svg.selectAll(".bubble")
                 .data(nodes, d => d.country + d.disease)
                 .enter()
@@ -97,7 +124,18 @@ function init() {
             newBubbles.append("circle")
                 .attr("r", d => d.radius)
                 .attr("fill", d => colorScale(d.disease))
-                .attr("opacity", 0.8);
+                .attr("opacity", 0.8)
+                .on("mouseover", (event, d) => {
+                    tooltip.style("visibility", "visible")
+                        .html(`Vaccination Coverage: ${d.vaccination_coverage}%`);
+                })
+                .on("mousemove", event => {
+                    tooltip.style("top", `${event.pageY + 10}px`)
+                        .style("left", `${event.pageX + 10}px`);
+                })
+                .on("mouseout", () => {
+                    tooltip.style("visibility", "hidden");
+                });
 
             newBubbles.append("text")
                 .selectAll("tspan")
@@ -112,34 +150,27 @@ function init() {
                 .attr("dy", (d, i) => (i === 0 ? 0 : 12))
                 .text(d => d);
 
-            // Ticking function to move the bubbles in the simulation
-            function ticked() {
+            simulation.on("tick", () => {
                 svg.selectAll(".bubble")
                     .attr("transform", d => `translate(${d.x}, ${d.y})`);
-            }
+            });
+        }
 
-            // Drag interaction
-            function dragStart(event, d) {
-                if (!event.active) simulation.alphaTarget(0.3).restart();  // Restart simulation on drag start
-                d.fx = d.x;  // Fix the x and y position when dragging starts
-                d.fy = d.y;
-            }
+        // Dragging functions
+        function dragStart(event, d) {
+            if (!event.active) simulation.alphaTarget(0.3).restart();
+            d.fx = d.x;
+            d.fy = d.y;
+        }
 
-            function dragged(event, d) {
-                // During drag, update the bubble's position independently from the simulation
-                d.fx = event.x;
-                d.fy = event.y;
-                simulation.alpha(0.3).restart();  // Keep the simulation active while dragging
-            }
+        function dragged(event, d) {
+            d.fx = event.x;
+            d.fy = event.y;
+            simulation.alpha(0.3).restart();
+        }
 
-            function dragEnd(event, d) {
-                if (!event.active) simulation.alphaTarget(0);  // End simulation effect after drag ends
-                // Don't fix the position permanently, just leave the bubbles as they are
-                // d.fx = event.x;
-                // d.fy = event.y;
-            }
-
-            simulation.on("tick", ticked);
+        function dragEnd(event, d) {
+            if (!event.active) simulation.alphaTarget(0);
         }
 
         // Update chart based on dropdown selection

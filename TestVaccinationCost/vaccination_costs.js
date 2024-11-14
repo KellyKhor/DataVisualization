@@ -1,13 +1,13 @@
 function init() {
     var w = 800; 
     var h = 500; 
-    var padding = { top: 40, right: 50, bottom: 60, left: 70 };
+    var padding = { top: 40, right: 50, bottom: 60, left: 70 }; //create room for axes
 
     // Set up scales
     var xScale = d3.scaleLinear().range([padding.left, w - padding.right]);
     var yScale = d3.scaleLinear().range([h - padding.bottom, padding.top]);
 
-    // Define line generator
+    // Define line generator and map the values
     var line = d3.line()
         .x(d => xScale(d.Year))
         .y(d => yScale(d.value));
@@ -20,7 +20,7 @@ function init() {
 
     // Load data from CSV
     d3.csv("vaccination_costs.csv").then(function (data) {
-        // Convert year and values to numbers
+        // Convert year and values to numbers for numerical operations
         data.forEach(d => {
             d.Year = +d.Year;
             d.HepatitisA = +d.HepatitisA;
@@ -29,7 +29,7 @@ function init() {
         });
 
         // Restructure the data for line generation
-        var diseases = ["HepatitisA", "Measles", "Tetanus"];
+        var diseases = ["HepatitisA", "Measles", "Tetanus"]; //columns representing the different vaccinations
         var dataset = diseases.map(disease => {
             return data.map(d => {
                 return { Year: d.Year, value: d[disease], disease: disease };
@@ -128,7 +128,7 @@ function init() {
             .attr("fill", color(diseases[i]))
             .style("opacity", 0) // Start invisible
             .transition()
-            .duration(500) // Fade-in effect
+            .duration(500) // Fade-in effect.
             .style("opacity", 1)
             .text(diseases[i]);
     });
