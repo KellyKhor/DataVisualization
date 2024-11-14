@@ -18,6 +18,18 @@ function init() {
     const sizeScale = d3.scaleSqrt().range([10, 50]); // Square root scale for bubble radius
     const colorScale = d3.scaleOrdinal(d3.schemeCategory10);
 
+    // Create tooltip
+    const tooltip = d3.select("body")
+        .append("div")
+        .attr("class", "tooltip")
+        .style("position", "absolute")
+        .style("background-color", "white")
+        .style("border", "1px solid gray")
+        .style("padding", "8px")
+        .style("border-radius", "4px")
+        .style("visibility", "hidden")
+        .style("pointer-events", "none");
+
     // Populate dropdown
     const yearSelector = d3.select("#yearSelector");
     yearSelector.selectAll("option")
@@ -112,7 +124,18 @@ function init() {
             newBubbles.append("circle")
                 .attr("r", d => d.radius)
                 .attr("fill", d => colorScale(d.disease))
-                .attr("opacity", 0.8);
+                .attr("opacity", 0.8)
+                .on("mouseover", (event, d) => {
+                    tooltip.style("visibility", "visible")
+                        .html(`Vaccination Coverage: ${d.vaccination_coverage}%`);
+                })
+                .on("mousemove", event => {
+                    tooltip.style("top", `${event.pageY + 10}px`)
+                        .style("left", `${event.pageX + 10}px`);
+                })
+                .on("mouseout", () => {
+                    tooltip.style("visibility", "hidden");
+                });
 
             newBubbles.append("text")
                 .selectAll("tspan")
