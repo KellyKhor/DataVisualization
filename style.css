@@ -185,3 +185,27 @@ a:hover .hover55 {
     font-weight: bold;
     margin-bottom: 8px;
 }
+
+/*For introduction*/
+.introduction-section {
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+}
+
+.introduction-section h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.introduction-section p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+}
