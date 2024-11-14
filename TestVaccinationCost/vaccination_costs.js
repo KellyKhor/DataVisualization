@@ -1,7 +1,7 @@
 function init() {
     var w = 800;
     var h = 500;
-    var padding = { top: 40, right: 50, bottom: 60, left: 70 };
+    var padding = { top: 40, right: 100, bottom: 60, left: 70 };  // Increased right padding
 
     var xScale = d3.scaleLinear().range([padding.left, w - padding.right]);
     var yScale = d3.scaleLinear().range([h - padding.bottom, padding.top]);
@@ -213,7 +213,33 @@ function init() {
             return ((value - prevValue) / prevValue * 100).toFixed(2);
         }
 
+        // Add the legend
+        var legend = svg.append("g")
+            .attr("transform", `translate(${w - padding.right + 100}, ${padding.top})`);  // Move further to the right
+
+        legend.selectAll(".legend")
+            .data(diseases)
+            .enter().append("g")
+            .attr("class", "legend")
+            .attr("transform", (d, i) => `translate(0, ${i * 20})`);
+
+        legend.selectAll(".legend")
+            .append("rect")
+            .attr("x", 0)
+            .attr("width", 15)
+            .attr("height", 15)
+            .style("fill", color);
+
+        legend.selectAll(".legend")
+            .append("text")
+            .attr("x", 20)
+            .attr("y", 12)
+            .attr("dy", ".35em")
+            .style("text-anchor", "start")
+            .text(d => d); // Disease name
     });
 }
+
+
 
 window.onload = init;
