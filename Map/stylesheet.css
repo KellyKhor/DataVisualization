@@ -209,6 +209,7 @@ article {
 }
 
 #description {
+    color: white;
     line-height: 25px;
     margin-top: 15px;
 }
