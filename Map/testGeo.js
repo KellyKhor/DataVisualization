@@ -12,10 +12,9 @@ function init() {
     ]);
 
     const projection = d3.geoMercator()
-    .center([20, 50])  // Keep the center as needed
-    .translate([w / 2, h / 2])  // Adjust the translation based on the new width and height
-    .scale(600);  // Increase the scale value to zoom in on the map and make it bigger
-
+    .center([20, 50])  
+    .translate([w / 2, h / 2])
+    .scale(600); 
 
     const path = d3.geoPath().projection(projection);
     const svg = d3.select(".map-container")
@@ -23,7 +22,6 @@ function init() {
         .attr("width", w)
         .attr("height", h);
 
-    // Create tooltip element
     const tooltip = d3.select("body")
         .append("div")
         .attr("class", "tooltip")
@@ -41,110 +39,119 @@ function init() {
         "Measles": "Measles_VaccineCov.csv"
     };
 
-    let currentDataset = "Hepatitis B";  // Default dataset
-    let currentYear = 2013;  // Default year
+    let currentDataset = "Hepatitis B";  
+    let currentYear = 2013;  
 
-    function loadDataset(datasetName) {
-        d3.csv(datasets[datasetName]).then(function(data) {
-            const countryData = {};
-            data.forEach(d => {
-                const country = d.Countries.trim();
-                countryData[country] = {};
-                for (let year = 2013; year <= 2023; year++) {
-                    countryData[country][year] = +d[year];
-                }
-            });
+    let populationData = {};
 
-            function updateMap(year) {
-                color.domain([
-                    d3.min(Object.values(countryData), d => d[year]),
-                    d3.max(Object.values(countryData), d => d[year])
-                ]);
-
-                d3.json("europe.json").then(function(json) {
-                    json.features.forEach(feature => {
-                        const country = feature.properties.NAME.trim();
-                        feature.properties.value = countryData[country] ? countryData[country][year] : null;
-                    });
-
-                    const paths = svg.selectAll("path").data(json.features);
-
-                    paths.enter()
-                        .append("path")
-                        .attr("d", path)
-                        .merge(paths)
-                        .style("fill", d => d.properties.value ? color(d.properties.value) : "#ccc")
-                        .style("stroke", "black")
-                        .on("mouseover", function(event, d) {
-                            // Show tooltip with country name and data value as a percentage
-                            const value = d.properties.value !== null ? (d.properties.value * 100).toFixed(2) + "%" : "No data";
-                            tooltip.style("visibility", "visible")
-                                .html(`<strong>${d.properties.NAME}</strong><br>Vaccination Coverage: ${value}`);
-                        
-                            // Dim all countries
-                            svg.selectAll("path")
-                                .style("opacity", 0.3);
-                        
-                            // Highlight hovered country
-                            d3.select(this)
-                                .style("opacity", 1);
-                        })
-                        .on("mousemove", function(event) {
-                            tooltip.style("top", (event.pageY - 10) + "px")
-                                .style("left", (event.pageX + 10) + "px");
-                        })
-                        .on("mouseout", function() {
-                            tooltip.style("visibility", "hidden");
-                        
-                            // Reset opacity for all countries
-                            svg.selectAll("path")
-                                .style("opacity", 1);
-                        });
-                        
-
-                    paths.exit().remove();
-                });
+    // Load population data
+    d3.csv("population.csv").then(function(data) {
+        data.forEach(d => {
+            const country = d["Country Name"].trim();
+            populationData[country] = {};
+            for (let year = 2013; year <= 2023; year++) {
+                populationData[country][year] = +d[year];
             }
-
-            updateMap(currentYear);
-
-            d3.select(".year-buttons").selectAll("button")
-                .on("click", function() {
-                    const selectedYear = +d3.select(this).text();
-                    currentYear = selectedYear;
-                    updateMap(selectedYear);
-                    d3.selectAll(".year-buttons button").classed("active", false);
-                    d3.select(this).classed("active", true);
-                });
-        }).catch(error => console.error("Error loading CSV:", error));
-    }
-
-    loadDataset(currentDataset);
-
-    d3.select(".dataset-buttons").selectAll("button")
-        .data(Object.keys(datasets))
-        .enter()
-        .append("button")
-        .text(d => d)
-        .on("click", function(event, d) {
-            currentDataset = d;
-            loadDataset(d);
-            d3.selectAll(".dataset-buttons button").classed("active", false);
-            d3.select(this).classed("active", true);
         });
 
-    const years = Array.from({ length: 11 }, (_, i) => 2013 + i);
-    const yearButtons = d3.select(".year-buttons");
-    years.forEach(year => {
-        yearButtons.append("button")
-            .text(year)
-            .on("click", function() {
-                currentYear = year;
-                loadDataset(currentDataset);
-                yearButtons.selectAll("button").classed("active", false);
+        function loadDataset(datasetName) {
+            d3.csv(datasets[datasetName]).then(function(data) {
+                const countryData = {};
+                data.forEach(d => {
+                    const country = d.Countries.trim();
+                    countryData[country] = {};
+                    for (let year = 2013; year <= 2023; year++) {
+                        countryData[country][year] = +d[year];
+                    }
+                });
+
+                function updateMap(year) {
+                    color.domain([
+                        d3.min(Object.values(countryData), d => d[year]),
+                        d3.max(Object.values(countryData), d => d[year])
+                    ]);
+
+                    d3.json("europe.json").then(function(json) {
+                        json.features.forEach(feature => {
+                            const country = feature.properties.NAME.trim();
+                            feature.properties.value = countryData[country] ? countryData[country][year] : null;
+                            feature.properties.population = populationData[country] ? populationData[country][year] : "No data";
+                        });
+
+                        const paths = svg.selectAll("path").data(json.features);
+
+                        paths.enter()
+                            .append("path")
+                            .attr("d", path)
+                            .merge(paths)
+                            .style("fill", d => d.properties.value ? color(d.properties.value) : "#ccc")
+                            .style("stroke", "black")
+                            .on("mouseover", function(event, d) {
+                                const value = d.properties.value !== null ? (d.properties.value * 100).toFixed(2) + "%" : "No data";
+                                const population = d.properties.population !== "No data" ? d.properties.population.toLocaleString() : "No data";
+                                tooltip.style("visibility", "visible")
+                                    .html(`<strong>${d.properties.NAME}</strong><br>Vaccination Coverage: ${value}<br>Population: ${population}`);
+                            
+                                svg.selectAll("path")
+                                    .style("opacity", 0.3);
+                            
+                                d3.select(this)
+                                    .style("opacity", 1);
+                            })
+                            .on("mousemove", function(event) {
+                                tooltip.style("top", (event.pageY - 10) + "px")
+                                    .style("left", (event.pageX + 10) + "px");
+                            })
+                            .on("mouseout", function() {
+                                tooltip.style("visibility", "hidden");
+                                svg.selectAll("path")
+                                    .style("opacity", 1);
+                            });
+
+                        paths.exit().remove();
+                    });
+                }
+
+                updateMap(currentYear);
+
+                d3.select(".year-buttons").selectAll("button")
+                    .on("click", function() {
+                        const selectedYear = +d3.select(this).text();
+                        currentYear = selectedYear;
+                        updateMap(selectedYear);
+                        d3.selectAll(".year-buttons button").classed("active", false);
+                        d3.select(this).classed("active", true);
+                    });
+            }).catch(error => console.error("Error loading CSV:", error));
+        }
+
+        loadDataset(currentDataset);
+
+        d3.select(".dataset-buttons").selectAll("button")
+            .data(Object.keys(datasets))
+            .enter()
+            .append("button")
+            .text(d => d)
+            .on("click", function(event, d) {
+                currentDataset = d;
+                loadDataset(d);
+                d3.selectAll(".dataset-buttons button").classed("active", false);
                 d3.select(this).classed("active", true);
             });
-    });
+
+        const years = Array.from({ length: 11 }, (_, i) => 2013 + i);
+        const yearButtons = d3.select(".year-buttons");
+        years.forEach(year => {
+            yearButtons.append("button")
+                .text(year)
+                .on("click", function() {
+                    currentYear = year;
+                    loadDataset(currentDataset);
+                    yearButtons.selectAll("button").classed("active", false);
+                    d3.select(this).classed("active", true);
+                });
+        });
+    }).catch(error => console.error("Error loading Population CSV:", error));
 }
 
 window.onload = init;
