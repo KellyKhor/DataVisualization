@@ -37,7 +37,7 @@ function init() {
 
         var color = d3.scaleOrdinal()
             .domain(diseases)
-            .range(["steelblue", "green", "orange"]);
+            .range(["green", "steelblue", "orange"]);
 
         // Add grid lines
         svg.append("g")
