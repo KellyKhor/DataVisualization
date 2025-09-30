@@ -29,7 +29,5 @@ This was a group project as part of my Data Visualizations courssse. I specifica
 - Creating interactive data visualizations with D3.js.
 - Designing bubble charts with force simulations for collision handling.
 - Building dynamic line charts with animations and hover tooltips.
-
-Structuring multi-source datasets (WHO, UNICEF, World Bank) for clean visualization.
-
-Improving user experience with filtering, tooltips, and smooth transitions.
+- Improving usability with filtering, legends, and interactive tooltips.
+- Applying visual design principles to make data trends clear and engaging.
