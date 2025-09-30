@@ -21,8 +21,8 @@ This was a group project as part of my Data Visualizations courssse. I specifica
 - Frontend: HTML5, CSS
 
 ## Live Website
-- [Vaccination Costs Line Chart](https://kellykhor.github.io/DataVisualization/TestVaccinationCost/vaccination_costs.html)
-- [Healthcare Expenditure Bubble Chart](https://kellykhor.github.io/DataVisualization/HealthExpenditure/floating_bubbles.html)
+- [Vaccination Costs Line Chart](https://kellykhor.github.io/Europe_Vaccination_Data_Visualization/TestVaccinationCost/vaccination_costs.html)
+- [Healthcare Expenditure Bubble Chart](https://kellykhor.github.io/Europe_Vaccination_Data_Visualization/HealthExpenditure/floating_bubbles.html)
 
 
 ## What I Learned
